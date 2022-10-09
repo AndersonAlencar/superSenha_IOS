@@ -13,8 +13,7 @@ class TipsManager {
     static let shared = TipsManager()
     
     lazy var tips: [Tip] = {
-        let tips = loadTips()
-        return tips
+        return loadTips()
     }()
     
     private init() {}
