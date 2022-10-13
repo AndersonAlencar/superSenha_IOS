@@ -42,7 +42,9 @@ extension SecurityTipsViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TipTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? TipTableViewCell else {
+            return UITableViewCell()
+        }
         cell.prepareCell(tip: tipManager.tips[indexPath.row])
         return cell
     }
